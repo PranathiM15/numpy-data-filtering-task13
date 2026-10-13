@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101426">
+  <meta name="description" content="Practice NumPy Boolean masks and numerical filtering with student marks and sales values.">
+  <title>NumPy Filtering Lab · Task 13</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="NumPy Filtering Lab home">
+        <span class="brand-mark">N<span>°</span></span>
+        <span class="brand-copy"><strong>NUMPY</strong><small>FILTERING LAB</small></span>
+      </a>
+      <div class="track-label">VEDA TECHNOLOGY <span class="track-dot"></span></div>
+      <div class="side-section-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#lab"><span class="nav-icon">⌘</span><span>Filter lab</span><span class="nav-current">●</span></a>
+        <a class="nav-item" href="#datasets"><span class="nav-icon">▦</span><span>Datasets</span></a>
+        <a class="nav-item" href="#how-it-works"><span class="nav-icon">⌁</span><span>How it works</span></a>
+      </nav>
+      <div class="side-bottom">
+        <div class="task-card">
+          <div class="task-kicker"><span class="tiny-spark">✳</span> CURRENT TASK</div>
+          <div class="task-number">13 <span>/ 30</span></div>
+          <div class="task-name">NumPy Data Filtering</div>
+          <div class="task-progress"><span></span></div>
+          <p>One small step closer to data fluency.</p>
+        </div>
+        <div class="side-footer"><span class="status-dot"></span> Local workspace <span class="version-label">v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="lab">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong>Filter lab</strong></div>
+        <div class="topbar-right"><span class="python-pill"><span class="status-dot"></span> Python + NumPy</span><span class="task-pill">LEVEL 1 <i>·</i> DAY 13</span></div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> BOOLEAN INDEXING PLAYGROUND</div>
+          <h1>Numbers, meet<br><em>your filter.</em></h1>
+          <p>Set a condition. Find the values that qualify. See NumPy's Boolean logic at work — without the guesswork.</p>
+          <div class="hero-meta"><span class="meta-icon">↳</span> TASK 13 <span class="meta-separator">/</span> NUMERICAL FILTERING</div>
+        </div>
+        <div class="hero-visual" aria-label="Illustration of a Boolean mask filtering numerical values">
+          <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+          <div class="visual-label label-top">INPUT ARRAY</div>
+          <div class="number-row"><span>45</span><span class="selected">78</span><span class="selected">62</span><span class="selected">91</span></div>
+          <div class="mask-label"><span>BOOLEAN MASK</span><span class="mask-expression">data &gt; 50</span></div>
+          <div class="mask-row"><b>0</b><b class="yes">1</b><b class="yes">1</b><b class="yes">1</b></div>
+          <div class="visual-arrow">↓</div>
+          <div class="output-array"><div><small>FILTERED OUTPUT</small><strong>[78, 62, 91]</strong></div><span class="output-check">✓</span></div>
+          <div class="floating-chip"><span>✳</span> Boolean indexing</div>
+        </div>
+        <div class="hero-glow"></div>
+      </section>
+
+      <section class="section-heading" id="datasets">
+        <div><div class="section-kicker">01 <span>·</span> CHOOSE YOUR DATA</div><h2>Start with a dataset</h2></div>
+        <span class="section-note">SAMPLE DATA INCLUDED</span>
+      </section>
+      <div class="dataset-grid">
+        <button class="dataset-card selected" data-dataset="marks" type="button" aria-pressed="true">
+          <span class="dataset-symbol marks-symbol">✳</span><span class="dataset-info"><strong>Student marks</strong><small>12 students <i>·</i> score / 100</small></span><span class="dataset-arrow">↗</span>
+        </button>
+        <button class="dataset-card" data-dataset="sales" type="button" aria-pressed="false">
+          <span class="dataset-symbol sales-symbol">↗</span><span class="dataset-info"><strong>Sales values</strong><small>12 orders <i>·</i> value in ₹</small></span><span class="dataset-arrow">↗</span>
+        </button>
+        <button class="dataset-card" data-dataset="custom" type="button" aria-pressed="false">
+          <span class="dataset-symbol custom-symbol">＋</span><span class="dataset-info"><strong>Custom numbers</strong><small>Use your own values</small></span><span class="dataset-arrow">↗</span>
+        </button>
+      </div>
+
+      <section class="workspace-grid">
+        <div class="panel filter-panel">
+          <div class="panel-heading"><div><div class="section-kicker">02 <span>·</span> BUILD A CONDITION</div><h2>Set your rule</h2></div><span class="rule-icon">⌘</span></div>
+          <label class="field-label" for="operator">Keep values that are</label>
+          <div class="operator-grid" role="group" aria-label="Comparison operator">
+            <button class="operator-btn active" data-op=">" type="button" aria-pressed="true">Greater than <b>&gt;</b></button>
+            <button class="operator-btn" data-op="<" type="button" aria-pressed="false">Less than <b>&lt;</b></button>
+            <button class="operator-btn" data-op="==" type="button" aria-pressed="false">Equal to <b>==</b></button>
+            <button class="operator-btn" data-op=">=" type="button" aria-pressed="false">At least <b>&ge;</b></button>
+            <button class="operator-btn" data-op="<=" type="button" aria-pressed="false">At most <b>&le;</b></button>
+          </div>
+          <label class="field-label threshold-label" for="threshold">Compare against threshold</label>
+          <div class="threshold-control"><input id="threshold" type="number" value="50" step="any" inputmode="decimal"><span id="threshold-unit">marks</span><button id="clear-threshold" type="button" aria-label="Reset threshold">↺</button></div>
+          <div id="custom-box" class="custom-box" hidden><label class="field-label" for="custom-values">Your data <span>COMMA-SEPARATED</span></label><textarea id="custom-values" rows="3" placeholder="e.g. 12, 45, 78, 92, 33">12, 45, 78, 92, 33, 67, 51</textarea><p>Enter up to 200 numbers, separated by commas.</p></div>
+          <div class="quick-label">QUICK THRESHOLDS</div>
+          <div class="quick-chips" id="quick-chips"><button type="button" data-threshold="40">40</button><button type="button" data-threshold="50" class="active">50</button><button type="button" data-threshold="75">75</button><button type="button" data-threshold="90">90</button></div>
+          <div class="rule-preview"><span class="preview-dot"></span><div><small>YOUR NUMPY CONDITION</small><code id="condition-preview">data &gt; 50</code></div><span class="preview-tag">READY</span></div>
+          <button class="run-button" id="run-filter" type="button"><span>Run filter</span><span class="run-arrow">→</span></button>
+          <p class="filter-hint"><span>ⓘ</span> Your condition runs through NumPy on the Python backend.</p>
+        </div>
+
+        <div class="panel results-panel" id="results">
+          <div class="panel-heading results-heading"><div><div class="section-kicker">03 <span>·</span> LIVE RESULTS</div><h2>What made the cut?</h2></div><span class="live-pill"><span class="status-dot"></span> LIVE</span></div>
+          <div id="error-message" class="error-message" role="alert" hidden></div>
+          <div class="result-summary"><div><span class="result-caption">MATCHING VALUES</span><div class="result-number"><strong id="match-count">—</strong><span id="total-count">/ —</span></div></div><div class="match-ring" id="match-ring"><div><strong id="match-percent">—</strong><small>matched</small></div></div></div>
+          <div class="result-bar"><span id="result-bar-fill"></span></div>
+          <div class="mini-stats"><div><span>MINIMUM</span><strong id="stat-min">—</strong></div><div><span>MAXIMUM</span><strong id="stat-max">—</strong></div><div><span>AVERAGE</span><strong id="stat-mean">—</strong></div></div>
+          <div class="output-heading"><div><strong>Filtered output</strong><small>NumPy Boolean indexing</small></div><button id="download-csv" class="download-btn" type="button" disabled>↓ Export CSV</button></div>
+          <div id="filtered-values" class="filtered-values"><span class="placeholder-dot"></span><span>Run a filter to see your matching values.</span></div>
+          <div class="code-snippet"><div class="code-top"><span><i></i><i></i><i></i> <small>PYTHON · NUMPY</small></span><button id="copy-code" type="button">COPY</button></div><pre><code id="code-output">mask = data &gt; 50
+filtered = data[mask]</code></pre></div>
+        </div>
+      </section>
+
+      <section class="panel data-panel">
+        <div class="table-heading"><div><div class="section-kicker">04 <span>·</span> INSPECT THE ARRAY</div><h2 id="table-title">Student marks <span id="table-count">12 values</span></h2></div><div class="legend"><span><i class="legend-match"></i> Matches</span><span><i class="legend-no"></i> Outside condition</span></div></div>
+        <div class="table-wrap"><table><thead><tr><th>INDEX</th><th>LABEL</th><th>VALUE</th><th>BOOLEAN MASK</th><th>RESULT</th></tr></thead><tbody id="data-rows"><tr><td colspan="5" class="empty-row">Waiting for the first filter…</td></tr></tbody></table></div>
+        <div class="table-foot"><span><span class="status-dot"></span> ARRAY READY</span><span id="array-info">NumPy ndarray <i>·</i> float values</span></div>
+      </section>
+
+      <section class="learn-panel" id="how-it-works"><div class="learn-icon">{ }</div><div class="learn-copy"><div class="section-kicker">THE CONCEPT</div><h3>Condition → mask → result.</h3><p>NumPy compares every value and creates a Boolean mask. Using <code>data[mask]</code> returns only the values where the mask is <code>True</code>.</p></div><div class="learn-steps"><div><span>01</span><strong>Compare</strong><small>data &gt; threshold</small></div><div class="step-connector">→</div><div><span>02</span><strong>Mask</strong><small>[False, True, …]</small></div><div class="step-connector">→</div><div><span>03</span><strong>Filter</strong><small>data[mask]</small></div></div></section>
+      <footer class="page-footer"><span>NUMPY FILTERING LAB <i>·</i> TASK 13</span><span>Built for learning, one condition at a time <b>✳</b></span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
